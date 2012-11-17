@@ -1,0 +1,25 @@
+%h1 Listing all requested topics  ...
+%table
+  %tr
+    %th ID 
+    %th Teachme
+    %th Votes 
+  - @runner.each do |r|
+    %tr
+      %td= r.id
+      %td= "Requested topic >> " + r.teachme  + " << "
+      %td= r.votes 
+      %td
+        %a{:href=>"/delete/#{r.id}"} 
+          Delete
+      %td
+        %a{:href=>"/inc/#{r.id}", :type=>"button"}
+          %button
+            Add my vote for this! 
+
+%br
+%a{:href=>"/new"}
+  %button
+    Click here to request a topic to learn about 
+%br
+
